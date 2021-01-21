@@ -10,10 +10,6 @@ const rowdy = require('rowdy-logger').begin(app);
 
 // API
 const users = require('./api/users');
-const expenses = require('./api/expenses')
-const investments = require('./api/investments')
-const comments = require('./api/comments')
-const blogPosts = require('./api/blogPosts')
 
 
 // Middleware
@@ -33,10 +29,6 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api/users', users);
-app.use('/api/expenses', expenses);
-app.use('/api/investments', investments);
-app.use('/api/comments', comments);
-app.use('/api/blogPosts', blogPosts);
 
 
 app.listen(PORT, () => {

@@ -23,7 +23,3 @@ db.on('error', (error) => {
 
 module.exports.User = require('./User');
 module.exports.Comment = require('./Comment');
-module.exports.BlogPost = require('./BlogPost');
-module.exports.Expense = require('./Expense');
-module.exports.Investment = require('./Investment');
-module.exports.Expense = require('./Expense');
