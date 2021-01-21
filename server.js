@@ -10,6 +10,7 @@ const rowdy = require('rowdy-logger').begin(app);
 
 // API
 const users = require('./api/users');
+const rounds = require('./api/rounds');
 
 
 // Middleware
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api/users', users);
+app.use('/api/rounds', rounds);
 
 
 app.listen(PORT, () => {

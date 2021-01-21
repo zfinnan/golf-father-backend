@@ -22,4 +22,4 @@ db.on('error', (error) => {
 });
 
 module.exports.User = require('./User');
-module.exports.Comment = require('./Comment');
+module.exports.Round = require('./Round');
