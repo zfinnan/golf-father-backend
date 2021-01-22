@@ -70,7 +70,7 @@ const roundSchema = new Schema({
     holeSixteenScore: { type: Number, required: true },
     holeSeventeenScore: { type: Number, required: true },
     holeEighteenScore: { type: Number, required: true },
-    playerOne: { type: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}] },
+    playerOne: { type: String },
     playerTwo: { type: String },
     playerThree: { type: String },
     playerFour: { type: String }
