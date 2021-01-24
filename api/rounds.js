@@ -10,13 +10,14 @@ router.get("/roundsTest", (req, res) => {
 });
 
 router.get(
-    "/:id/myExpenses",
+    "/:id/myRounds",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
       let roundsList = [];
       models.User.findOne({ _id: req.user.id })
         .populate("rounds")
         .then((user) => {
+            console.log(user)
           res.send(user.rounds);
         })
         .catch((error) => res.send({ error }));
