@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const mongoose = require("mongoose");
 
 const models = require("../models");
 const { model } = require("../models/User");
@@ -24,12 +25,17 @@ router.get(
     }
 );
 
-router.get("/:id", (req, res) => {
+
+router.get("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
+    console.log(req.user)
     models.User.findOne({ _id: req.user.id })
       .then((user) => {
-        if ("user.rounds".includes(req.body.roundId)) {
-          models.Round.findOne({ _id: req.body.roundId }).then(
+        let roundsAsStrings = user.rounds.map((round) => {return round.toString()})
+        if (roundsAsStrings.includes(req.params.id)) {
+          console.log('inside includes')
+          models.Round.findOne({ _id: req.params.id }).then(
             (foundRound) => {
+              console.log(foundRound)
               res.status(200).json({ foundRound });
             }
           );
