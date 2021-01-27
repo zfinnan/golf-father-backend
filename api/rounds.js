@@ -32,7 +32,6 @@ router.get("/:id", passport.authenticate("jwt", { session: false }), (req, res) 
       .then((user) => {
         let roundsAsStrings = user.rounds.map((round) => {return round.toString()})
         if (roundsAsStrings.includes(req.params.id)) {
-          console.log('inside includes')
           models.Round.findOne({ _id: req.params.id }).then(
             (foundRound) => {
               console.log(foundRound)
